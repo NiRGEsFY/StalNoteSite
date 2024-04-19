@@ -1,0 +1,29 @@
+:root {
+  --main-bg-color: #014040;
+  --light-bg-color: #02735e;
+  --element-bg-color: #03a678;
+  --element-border-color: #f27405;
+  --contrast-color: #731702;
+
+  --main-text-color: #e6ddd6;
+  --contrast-text-color: #f3efec;
+  --no-important-text-color: #bdb4ad;
+}
+.RenderMain{
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HomeVideoBorder{
+    overflow: hidden;
+    border-radius: 30px;
+    border: 2px solid var(--element-border-color);
+    box-shadow: 0px 0px 85px var(--element-border-color);
+}
+.HomeVideoBorder iframe{
+  height: 50vh;
+  width: 89vh;
+}

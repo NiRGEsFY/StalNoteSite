@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StalNoteSite", "StalNoteSite.csproj", "{ACF2DE9D-E09E-48D3-A254-93520D6427C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACF2DE9D-E09E-48D3-A254-93520D6427C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF2DE9D-E09E-48D3-A254-93520D6427C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF2DE9D-E09E-48D3-A254-93520D6427C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF2DE9D-E09E-48D3-A254-93520D6427C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85D996B3-79CB-4AA0-87C3-FF13EAA58C78}
+	EndGlobalSection
+EndGlobal

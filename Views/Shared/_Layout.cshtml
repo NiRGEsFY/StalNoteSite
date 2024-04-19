@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/@ViewData["CSS"]" asp-append-version="true" />
+</head>
+<body>
+    <header class="mainHeader">
+        <div class="buttonList">
+            <a asp-area="" asp-controller="TTK">ТТК</a>
+            <a asp-area="" asp-controller="DPS">ДПС</a>
+            <a asp-area="" asp-controller="Conteiner">Сборки</a>
+            <a asp-area="" asp-controller="Auction">Аукцион</a>
+            <a asp-area="" asp-controller="Hunter">Ищейки</a>
+            <a asp-area="" asp-controller="AuctionPlayer">Аукцион игроков</a>
+        </div>
+        <a class="login"asp-area="" asp-controller="Login">
+            Войти
+        </a>
+    </header>
+    <div class="mainBody">
+        @RenderBody()
+    </div>
+
+    <footer class="mainFooter">
+        <div class="footerCreator">
+            <a href="https://t.me/NiRGEsFY">
+                Создал __lokze__
+            </a>
+        </div>
+        <div>
+            <a target="_blank" href="https://discord.gg/QSnR4TQUs4">
+                <img src="~/img/site/discord.png"/>
+            </a>
+            <a target="_blank" href="https://t.me/stalnote">
+                <img src="~/img/site/telegram.png"/>
+            </a>
+        </div>
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
