@@ -1,14 +1,3 @@
-:root {
-  --main-bg-color: #014040;
-  --light-bg-color: #02735e;
-  --element-bg-color: #03a678;
-  --element-border-color: #f27405;
-  --contrast-color: #731702;
-
-  --main-text-color: #e6ddd6;
-  --contrast-text-color: #f3efec;
-  --no-important-text-color: #bdb4ad;
-}
 .RenderMain{
   height: 100%;
   width: 100%;

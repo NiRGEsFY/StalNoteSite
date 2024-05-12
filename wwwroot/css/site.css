@@ -1,13 +1,17 @@
 :root {
-  --main-bg-color: #014040;
-  --light-bg-color: #02735e;
-  --element-bg-color: #03a678;
-  --element-border-color: #f27405;
-  --contrast-color: #731702;
+  --main-bg-color: #0d101d;
+  --light-bg-color: #282e35;
+  --element-bg-color: #1c222c;
+  --element-border-color: #6E7371;
+  --contrast-color: #A1A69C;
 
   --main-text-color: #e6ddd6;
   --contrast-text-color: #f3efec;
   --no-important-text-color: #bdb4ad;
+
+  --font-max: 22px;
+  --font-normal: 18px;
+  --font-min: 14px;
 }
 
 html {

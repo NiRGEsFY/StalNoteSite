@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StalNoteSite.Data;
+using System.Security.Claims;
 
 namespace StalNoteSite
 {
@@ -19,6 +20,18 @@ namespace StalNoteSite
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<Stalcraft2Context>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Telegram", builder =>
+                {
+                    builder.RequireRole(ClaimTypes.Role,"Telegram");
+                });
+                options.AddPolicy("Exbo", builder =>
+                {
+                    builder.RequireRole(ClaimTypes.Role, "Exbo");
+                });
+            });
 
             var app = builder.Build();
 

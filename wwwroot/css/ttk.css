@@ -1,0 +1,680 @@
+
+
+.TTKMain{
+    height: 97%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100%;
+    padding: 25px 0px 10px 0px;
+}
+.armorMain{
+    padding: 2.5%;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.standColor{
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--element-border-color);
+    box-shadow: 0px 0px 10px var(--element-border-color);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.armorStand{
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 100%;
+}
+
+.armorImg{
+    grid-row: 1;
+    grid-column: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.armorImg img{
+    height: 80%;
+    width: auto;
+}
+
+.armorTable{
+    padding: 10px;
+    color: var(--no-important-text-color);
+    font-size: var(--font-min);
+    display: flex;
+    flex-direction: column;
+}
+
+.armorTableAddition{
+    margin: 5px 0px;
+}
+.armorTableMain{
+    margin: 5px 0px;
+}
+
+.armorTable{
+    grid-row: 2;
+    grid-column: 0;
+}
+
+.weaponMain{
+    overflow: hidden;
+    height: 76.5vh;
+}
+.weaponStand{
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 95%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.weaponStand::-webkit-scrollbar
+{
+    background-color: var(--contrast-color);
+    border-radius: 8px;
+    width: 7px;
+    overflow: hidden;
+}
+.weaponStand::-webkit-scrollbar-thumb
+{
+    background-color: var(--light-bg-color);
+    border-radius: 8px;
+}
+
+.weaponConfig{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    margin: 0px 0px 5px 0px;
+    border: 1px solid var(--element-border-color);
+    color: var(--no-important-text-color);
+}
+.weaponPlateConfig,
+.weaponConfigMedic{
+    width: 25%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weaponPlateConfig img,
+.weaponConfigMedic img{
+    height: 100%;
+    width: auto;
+}
+.weaponConfigMorf{
+    width: 25%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weaponConfigMorf img{
+    height: 100%;
+    width: auto;
+}
+.morfinCheckBox{
+    visibility: hidden;
+    position: absolute;
+}
+.morfinCheckBox+label{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    transition: 0.4s ease-in-out;
+}
+.morfinCheckBox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid var(--element-border-color);
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+input[type="number"] {
+    background-color: var(--element-bg-color);
+    text-align: center;
+    color: var(--no-important-text-color);
+    font-family: sans-serif;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.morfinCheckBox:checked+label::before {
+    border-color: var(--contrast-color);
+    background-color: var(--contrast-color);
+}
+.weaponConfigDistance{
+    width: 25%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weaponConfigDistance div{
+    font-size: var(--font-normal);
+    margin: 0px 10px 0px 0px;
+}
+.weaponConfigDistance input{
+    width: 35px;
+    border: 1px solid var(--element-border-color);
+}
+.weaponConfigUpdate{
+    width: 25%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weaponConfigUpdate button{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-radius: 10px;
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--contrast-color);
+    height: 50%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px var(--element-border-color);
+    transition: 0.4s ease-in-out;
+    color: var(--main-text-color);
+}
+.weaponConfigUpdate button:hover{
+    border: 1px solid var(--element-border-color);
+    box-shadow: 0px 0px 15px var(--contrast-color);
+    background-color: var(--light-bg-color);
+    color: var(--contrast-text-color);
+}
+.weaponConfigUpdate button:active{
+    transition: 0.1s ease-in-out;
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--contrast-color);
+    box-shadow: 0px 0px 10px var(--contrast-color);
+}
+
+
+.weaponItemBox{
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    grid-template-rows: 15% 85%;
+    padding: 8px 0px;
+    margin: 0px 0px 5px 0px;
+    border: 1px solid var(--element-border-color);
+    color: var(--no-important-text-color);
+}
+
+.weaponItemBoxImg{
+    width: 100%;
+    grid-row: 2;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+}
+.weaponItemBoxImg img{
+    max-height: 125px;
+    width: auto;
+}
+.weaponItemConfig{
+    width: 100%;
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weaponItemConfig img{
+    max-height: 75px;
+    width: auto;
+}
+.weaponItemName{
+    margin: 0px 0px 5px 0px;
+    font-size: var(--font-normal);
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weaponItemDamage{
+    width: 100%;
+    grid-column: 3;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 50px;
+}
+.weaponItemDamage div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--element-border-color);
+    font-size: var(--font-normal);
+}
+.weaponItemDamage .weaponItemDamageHead{
+    grid-row: 2;
+    grid-column: 1;
+}
+.weaponItemDamage .weaponItemDamageBody{
+    grid-row: 2;
+    grid-column: 2;
+}
+.weaponItemDamage .weaponItemDamageFifty{
+    grid-row: 2;
+    grid-column: 3;
+}
+.weaponItemDamage .weaponItemDamageHeadName{
+    grid-row: 1;
+    grid-column: 1;
+}
+.weaponItemDamage .weaponItemDamageBodyName{
+    grid-row: 1;
+    grid-column: 2;
+}
+.weaponItemDamage .weaponItemDamageFiftyName{
+    grid-row: 1;
+    grid-column: 3;
+}
+
+.caseStand{
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 100%;
+}
+.caseImg{
+    grid-row: 1;
+    grid-column: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.caseImg img{
+    height: 80%;
+    width: auto;
+}
+.caseTable{
+    padding: 10px;
+    color: var(--no-important-text-color);
+    display: flex;
+    flex-direction: column;
+}
+.caseTableAddition{
+    margin: 5px 0px;
+}
+.caseTableNegativ{
+    margin: 5px 0px;
+}
+
+.TTKbutton{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-radius: 10px;
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--contrast-color);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px var(--element-border-color);
+    transition: 0.4s ease-in-out;
+    color: var(--main-text-color);
+    font-size: var(--font-max);
+}
+.TTKbutton:hover{
+    border: 1px solid var(--element-border-color);
+    box-shadow: 0px 0px 15px var(--contrast-color);
+    background-color: var(--light-bg-color);
+    color: var(--contrast-text-color);
+}
+.TTKbutton:active{
+    transition: 0.1s ease-in-out;
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--contrast-color);
+    box-shadow: 0px 0px 10px var(--contrast-color);
+}
+
+.armorMain .buttonChooseArmor{
+    padding: 5%;
+    font-size: var(--font-max);
+    height: 10%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.weaponMain{
+    padding: 0.8325%;
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+}
+.weaponMain .weaponButtonMenu{
+    padding: 1.665%;
+    font-size: var(--font-max);
+    height: 10%;
+    width: 96.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weaponMain .weaponButtonMenu .addWeapon{
+    margin: 0px 15px 0px 0px;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weaponMain .weaponButtonMenu .removeWeapon{
+    margin: 0px 0px 0px 15px;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.caseMain{
+    padding: 2.5%;
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+}
+.caseMain .buttonChooseCase{
+    padding: 5%;
+    font-size: var(--font-max);
+    height: 10%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.caseTable{
+    font-size: var(--font-min);
+    color: var(--no-important-text-color);
+}
+.chooseAmmoMenu,
+.choosePlateMenu,
+.chooseAptMenu,
+.removeWeaponMenu,
+.addWeaponMenu,
+.chooseArmorMenu{
+    border: 1px solid var(--element-border-color);
+    position: absolute;
+    height: 76%;
+    width: 76%;
+    left: -150%;
+    top: 10%;
+    padding: 2%;
+    margin: 0px;
+    background-color: var(--element-bg-color);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px var(--element-border-color);
+    transition: 1.6s ease-in-out;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 80% 10%;
+}
+.chooseAmmoMenu,
+.choosePlateMenu,
+.chooseAptMenu,
+.removeWeaponMenu,
+.addWeaponMenu{
+    left: 10%;
+    top: -150%;
+}
+.chooseAmmoCancel,
+.choosePlateCancel,
+.chooseAptCancel,
+.chooseWeaponCancel,
+.chooseArmorCancel,
+.removeWeaponCancel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    grid-row: 1;
+    grid-column: 2;
+    padding: 0px;
+}
+.chooseAmmoCancel button,
+.choosePlateCancel button,
+.chooseAptCancel button,
+.chooseWeaponCancel button,
+.chooseArmorCancel button,
+.removeWeaponCancel button{
+    height: 50%;
+    width: 75%;
+    border-radius: 10px;
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--contrast-color);
+    color: var(--contrast-text-color);
+    box-shadow: 0px 0px 1px var(--contrast-color);
+    transition: 0.4s ease-in-out;
+}
+.chooseAmmoCancel button:hover,
+.choosePlateCancel button:hover,
+.chooseAptCancel button:hover,
+.chooseWeaponCancel button:hover,
+.chooseArmorCancel button:hover,
+.removeWeaponCancel button:hover{
+    box-shadow: 0px 0px 7px var(--contrast-color);
+}
+.chooseWeaponLevel,
+.chooseArmorLevel{
+    grid-row: 1;
+    grid-column: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-text-color);
+    font-size: var(--font-max);
+}
+.chooseWeaponLevel input,
+.chooseArmorLevel input{
+    color: var(--main-text-color);
+    border: 2px solid var(--element-border-color);
+    border-radius: 10px;
+    font-size: var(--font-max);
+    margin: 0px 10px;
+}
+.chooseWeaponType,
+.chooseArmorType{
+    grid-row: 1;
+    grid-column: 1;
+}
+.chooseWeaponRank form,
+.chooseWeaponType form,
+.chooseArmorRank form,
+.chooseArmorType form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-text-color);
+    font-size: var(--font-max);
+}
+.chooseWeaponRank form select,
+.chooseWeaponType form select,
+.chooseArmorRank form select,
+.chooseArmorType form select{
+    width: 50%;
+}
+.chooseWeaponRank form option,
+.chooseWeaponRank form select,
+.chooseWeaponType form option,
+.chooseWeaponType form select,
+.chooseArmorRank form select,
+.chooseArmorRank form option,
+.chooseArmorType form select,
+.chooseArmorType form option{
+    font-size: var(--font-normal);
+    background-color: var(--element-bg-color);
+    color: var(--main-text-color);
+}
+.chooseWeaponRank,
+.chooseArmorRank{
+    grid-row: 1;
+    grid-column: 3;
+}
+.chooseAmmoListBox,
+.choosePlateListBox,
+.chooseAptListBox,
+.removeWeaponListBox,
+.chooseWeaponListBox,
+.chooseArmorListBox{
+    overflow-y: scroll;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 2;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: baseline;
+
+}
+.chooseAmmoListBox::-webkit-scrollbar,
+.choosePlateListBox::-webkit-scrollbar,
+.chooseAptListBox::-webkit-scrollbar,
+.removeWeaponListBox::-webkit-scrollbar,
+.chooseWeaponListBox::-webkit-scrollbar,
+.chooseArmorListBox::-webkit-scrollbar{
+    background-color: var(--contrast-color);
+    border-radius: 8px;
+    width: 7px;
+    overflow: hidden;
+}
+.chooseAmmoListBox::-webkit-scrollbar-thumb,
+.choosePlateListBox::-webkit-scrollbar-thumb,
+.chooseAptListBox::-webkit-scrollbar-thumb,
+.removeWeaponListBox::-webkit-scrollbar-thumb,
+.chooseWeaponListBox::-webkit-scrollbar-thumb,
+.chooseArmorListBox::-webkit-scrollbar-thumb
+{
+    background-color: var(--light-bg-color);
+    border-radius: 8px;
+}
+.chooseAmmoIcon,
+.choosePlateIcon,
+.chooseAptIcon,
+.removeWeaponIcon,
+.chooseWeaponIcon,
+.chooseArmorIcon{
+    border: 1px solid var(--element-border-color);
+    margin: 1%;
+    padding: 0.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+    border-radius: 10px;
+}
+.chooseAmmoIcon:hover,
+.choosePlateIcon:hover,
+.chooseAptIcon:hover,
+.removeWeaponIcon:hover,
+.chooseWeaponIcon:hover,
+.chooseArmorIcon:hover{
+    border: 1px solid var(--contrast-color);
+    box-shadow: 0px 0px 5px var(--contrast-color);
+}
+.chooseAmmoIcon img,
+.choosePlateIcon img,
+.chooseAptIcon img,
+.removeWeaponIcon img,
+.chooseWeaponIcon img,
+.chooseArmorIcon img{
+    min-height: 75px;
+    height: 150%;
+    max-height: 250px;
+    width: auto;
+    margin: 5px 0px;
+}
+.chooseAmmoIcon div,
+.chooseAmmoIcon p,
+.choosePlateIcon div,
+.choosePlateIcon p,
+.chooseAptIcon div,
+.chooseAptIcon p,
+.removeWeaponIcon div,
+.removeWeaponIcon p,
+.chooseWeaponIcon div,
+.chooseWeaponIcon p,
+.chooseArmorIcon div,
+.chooseArmorIcon p{
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+    width: 125px;
+    text-align: center;
+    color: var(--no-important-text-color);
+    font-size: var(--font-normal);
+    margin: 5px 0px;
+}
+.chooseAmmoIcon div,
+.chooseAmmoIcon p{
+    width: 180px;
+}
+.chooseAptIcon div,
+.chooseAptIcon p{
+    width: 150px;
+}
+
+.chooseWeaponCancel,
+.chooseArmorCancel{
+    grid-row: 3;
+    grid-column: 2;
+}
+
+
+
+
+
+.remove{
+    display: none;
+    position: absolute;
+}
+.middleChoose{
+    left: 10%;
+    top: 10%;
+}

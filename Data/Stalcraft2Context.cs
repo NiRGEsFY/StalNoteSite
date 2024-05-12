@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using StalNoteSite.Data.AuctionItem;
 using StalNoteSite.Data.DataItem;
 using StalNoteSite.Data.Other;
+using StalNoteSite.Data.Users;
 
 namespace StalNoteSite;
 
@@ -45,6 +46,8 @@ public partial class Stalcraft2Context : DbContext
     public virtual DbSet<UserTelegram> UserTelegrams { get; set; }
 
     public virtual DbSet<UserToken> UserTokens { get; set; }
+
+    public virtual DbSet<UserCase> UserCases { get; set; }
 
     public virtual DbSet<WeaponItem> WeaponsItems { get; set; }
 

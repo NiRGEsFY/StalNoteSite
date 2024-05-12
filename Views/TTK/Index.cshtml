@@ -1,0 +1,289 @@
+﻿@using Newtonsoft.Json
+@model StalNoteSite.Models.TTKModel
+@{
+    ViewData["Title"] = "TTK";
+    ViewData["CSS"] = "ttk.css";
+}
+
+<div class="TTKMain">
+
+
+    <div class="armorMain">
+        <div id="buttonChooseArmor" class="buttonChooseArmor">
+            <button id="TTKbutton" class="TTKbutton">
+                Выбрать броню
+            </button>
+        </div>
+        <div class="armorStand standColor">
+            <div class="armorImg">
+                <img id="armorImg" src="~/img/gameIcon/armor/combat/y3q1o.png" />
+            </div>
+            <div class="armorTable">
+                <p id="armorTableTextName">Описание брони</p>
+                <div id="armorTableTextAddition" class="armorTableAddition">
+                    Скорость <br />
+                    Лечени
+                </div>
+                <div id="armorTableTextMain" class="armorTableMain">
+                    Пулестой <br />
+                    Разрыв
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weaponMain">
+
+        <div class="weaponButtonMenu">
+
+            <button id="addWeapon" class="addWeapon TTKbutton">
+                Добавить оружие
+            </button>
+
+            <button id="removeWeapon" class="removeWeapon TTKbutton">
+                Удалить оружие
+            </button>
+
+        </div>
+
+        <div class="weaponStand standColor">
+
+            <div class="weaponConfig">
+                <div id="medicineBox" class="weaponConfigMedic">
+                    <img id="medicineConfig" src="~/img/gameIcon/medicine/1r2o9.png" />
+                </div>
+                <div id="plateBox" class="weaponPlateConfig">
+                    <img id="plateImg" src="~/img/gameIcon/myOther/dtyj56ftyhty.png"/>
+                </div>
+                <div class="weaponConfigMorf">
+                    <img src="~/img/gameIcon/medicine/p62q6.png"/>
+                    <input class="morfinCheckBox" value="false" type="checkbox" id="morfin"/>
+                    <label for="morfin"></label>
+                </div>
+                <div class="weaponConfigDistance">
+                    <div>
+                        Дистанция:
+                    </div>
+                    <input id="distance" max="200" min="0" type="number"/>
+                </div>
+                <div class="weaponConfigUpdate">
+                    <button id="refreshInfo">
+                        Обновить
+                    </button>
+                </div>
+            </div>
+
+            <div id="weaponItemPrototype" class="weaponItemBox">
+                <div class="weaponItemBoxImg">
+                    <img id="weaponIcon" src="~/img/gameIcon/weapon/assault_rifle/lyl3j.png" />
+                </div>
+                <div class="weaponItemConfig">
+                    <img id="weaponAmmoChoose" src="~/img/gameIcon/bullet/63yy.png" />
+                </div>
+                <div class="weaponItemDamage">
+                    <div class="weaponItemDamageHeadName">
+                        Голова
+                    </div>
+                    <div class="weaponItemDamageBodyName">
+                        Тело
+                    </div>
+                    <div class="weaponItemDamageFiftyName">
+                        Пример. опен
+                    </div>
+                    <div id="damageToHead" class="weaponItemDamageHead">
+                        1 с
+                    </div>
+                    <div id="damageToBody" class="weaponItemDamageBody">
+                        2с
+                    </div>
+                    <div id="damageToFifty" class="weaponItemDamageFifty">
+                        1.5 с
+                    </div>
+                </div>
+                <div class="weaponItemName">Name</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="caseMain">
+        <div class="buttonChooseCase">
+            <button class="TTKbutton">
+                Выбрать сборку
+            </button>
+        </div>
+        <div class="caseStand standColor">
+            <div class="caseImg">
+                <img  src="~/img/gameIcon/containers/p92d.png"/>
+            </div>
+            <div class="caseTable">
+                Параметры сборки
+                <div class="caseTableAddition">
+                    Положительные
+                </div>
+                <div class="caseTableNegativ">
+                    Негативные
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chooseArmorMenu" class="chooseArmorMenu">
+        <div class="chooseArmorLevel">
+            <p>Уровень брони: </p>
+            <input id="chooseArmorLevel" type="number" step="1" value="0" min="0" max="15"/>
+        </div>
+        <div class="chooseArmorType">
+            <form>
+                <label for="armorChooseType">Выберите тип:</label>
+                <select id="armorChooseType" name="armorChooseType">
+                    <option value="None">Ничего</option>
+                    <option value="clothes">Одежда</option>
+                    <option value="combat">Боевые</option>
+                    <option value="combined">Комбинированные</option>
+                    <option value="scientist">Научные</option>
+                </select>
+            </form>
+        </div>
+        <div class="chooseArmorRank">
+            <form>
+                <label for="armorChooseRank">Выберите ранг:</label>
+                <select id="armorChooseRank" name="armorChooseRank">
+                    <option value="None">Ничего</option>
+                    <option value="Отмычка">Отмычка</option>
+                    <option value="Новичок">Новичок</option>
+                    <option value="Сталкер">Сталкер</option>
+                    <option value="Ветеран">Ветеран</option>
+                    <option value="Мастер">Мастер</option>
+                    <option value="Легенда">Легенда</option>
+                </select>
+            </form>
+        </div>
+        <div id="chooseArmorListBox" class="chooseArmorListBox">
+            <div id="chooseArmorPrototype" class="chooseArmorIcon">
+                <p>Название</p>
+                <img id="2oqdl" src="~/img/gameIcon/armor/combat/2oqdl.png"/>
+                <div>П/У: 492</div>
+            </div>
+        </div>
+        <div class="chooseArmorCancel">
+            <button id="chooseArmorCancel">Отмена</button>
+        </div>
+    </div>
+    <div id="chooseWeaponMenu" class="addWeaponMenu">
+        <div class="chooseWeaponLevel">
+            <p>Уровень оружия: </p>
+            <input id="chooseWeaponLevel" type="number" step="1" value="0" min="0" max="15" />
+        </div>
+        <div class="chooseWeaponType">
+            <form>
+                <label for="weaponChooseType">Выберите тип:</label>
+                <select id="weaponChooseType" name="weaponChooseType">
+                    <option value="None">Ничего</option>
+                    <option value="assault_rifle">Автоматы</option>
+                    <option value="heavy">Прочее вооружение</option>
+                    <option value="machine_gun">Пулеметы</option>
+                    <option value="pistol">Пистолеты</option>
+                    <option value="shotgun_rifle">Дробовики и ружья</option>
+                    <option value="sniper_rifle">Снайперские винтовки</option>
+                    <option value="submachine_gun">Пистолеты-пулеметы</option>
+                </select>
+            </form>
+        </div>
+        <div class="chooseWeaponRank">
+            <form>
+                <label for="weaponChooseRank">Выберите ранг:</label>
+                <select id="weaponChooseRank" name="weaponChooseRank">
+                    <option value="None">Ничего</option>
+                    <option value="Отмычка">Отмычка</option>
+                    <option value="Новичок">Новичок</option>
+                    <option value="Сталкер">Сталкер</option>
+                    <option value="Ветеран">Ветеран</option>
+                    <option value="Мастер">Мастер</option>
+                    <option value="Легенда">Легенда</option>
+                </select>
+            </form>
+        </div>
+        <div id="chooseWeaponListBox" class="chooseWeaponListBox">
+            <div id="chooseWeaponPrototype" class="chooseWeaponIcon">
+                <p>Название</p>
+                <img id="2oqdl" src="~/img/gameIcon/weapon/pistol/1r7dr.png" />
+                <div>Урон: 52</div>
+            </div>
+        </div>
+        <div class="chooseWeaponCancel">
+            <button id="chooseWeaponCancel">Отмена</button>
+        </div>
+    </div>
+
+    <div id="removeWeaponMenu" class="removeWeaponMenu">
+        <div class="removeWeaponCancel">
+            <button id="removeWeaponCancel">Отмена</button>
+        </div>
+        <div id="removeWeaponListBox" class="removeWeaponListBox">
+            <div id="removeWeaponPrototype" class="removeWeaponIcon">
+                <p>Название</p>
+                <img id="2oqdl" src="~/img/gameIcon/weapon/pistol/1r7dr.png" />
+                <div>Заточка: -1</div>
+                <div>Урон: 95</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chooseAptMenu" class="chooseAptMenu">
+        <div class="chooseAptListBox" id="chooseAptListBox">
+            <div id="chooseAptPrototype" class="chooseAptIcon">
+                <p>Название</p>
+                <img id="2oqdl" src="~/img/gameIcon/medicine/96430.png" />
+                <div>Лечение: 4</div>
+                <div>Кровотечение: -1</div>
+            </div>
+        </div>
+        <div class="chooseAptCancel">
+            <button id="chooseAptCancel">Отмена</button>
+        </div>
+    </div>
+    <div id="choosePlateMenu" class="choosePlateMenu">
+        <div class="choosePlateListBox" id="choosePlateListBox">
+            <div id="choosePlatePrototype" class="choosePlateIcon">
+                <p>Название</p>
+                <img id="2oqdl" src="~/img/gameIcon/myOther/dtyj56ftyhty.png" />
+                <div>Броня: 100</div>
+                <div>Поглащение: 10</div>
+            </div>
+        </div>
+        <div class="choosePlateCancel">
+            <button id="choosePlateCancel">Отмена</button>
+        </div>
+    </div>
+
+    <div id="chooseAmmoMenu" class="chooseAmmoMenu">
+        <div class="chooseAmmoListBox" id="chooseAmmoListBox">
+            <div id="chooseAmmoPrototype" class="chooseAmmoIcon">
+                <p>Название</p>
+                <img id="2oqdl" src="~/img/gameIcon/bullet/0or1.png" />
+                <div>Бронебойность: 10%</div>
+                <div>Кровотечение: 5</div>
+                <div>Останова: 5</div>
+                <div>Ожог: 5</div>
+            </div>
+        </div>
+        <div class="chooseAmmoCancel">
+            <button id="chooseAmmoCancel">Отмена</button>
+        </div>
+    </div>
+
+
+    <div class="chooseCaseMenu">
+
+    </div>
+
+
+</div>
+<script>
+    var inputTextData = JSON.stringify(@Html.Raw(JsonConvert.SerializeObject(Model)));
+    var inputData = JSON.parse(inputTextData);
+</script>
+<script src="~/js/ttk.js"/>
+
