@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using StalNoteSite.Models;
+using StalNoteSite.Analize.Models;
 
 namespace StalNoteSite.Controllers
 {
-    [Authorize]
     public class DPSController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
 
@@ -14,7 +14,7 @@ namespace StalNoteSite.Controllers
             model.caseItems = null;
             model.Bullets = null;
 
-            using (var context = new Stalcraft2Context())
+            using (var context = new ApplicationDbContext())
             {
                 model.allWeaponItems = context.WeaponsItems.ToList();
                 model.allArmorItems = context.ArmorsItems.ToList();

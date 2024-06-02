@@ -1,0 +1,227 @@
+.mainProfileBox{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 80% 20%;
+    height: 97%;
+    width: 100%;
+    padding: 10px;
+}
+div{
+    color: var(--main-text-color);
+    font-size: var(--font-normal);
+}
+.baseProfileTile{
+    border: 1px solid var(--element-border-color);
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px var(--element-border-color);
+    background-color: var(--element-bg-color);
+    border-radius: 5px;
+}
+.baseProfileInfo{
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-max);
+}
+.baseProfileInfo img{
+    width: 200px;
+    height: 200px;
+    max-width: 250px;
+    max-height: 250px;
+    border: 2px solid var(--element-border-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px var(--element-border-color);
+    background-color: var(--contrast-color);
+}
+
+.socialItemBox{
+    font-size: var(--font-normal);
+    max-width: 250px;
+    height:  auto;
+    max-height: 300px;
+    width: 200px;
+    box-shadow: 0px 0px 10px var(--element-border-color);
+    background-color: var(--element-bg-color);
+    padding: 20px 5px;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.socialItemBox img,
+.socialItemBox div,
+.socialItemBox button{
+    margin: 5px 0px;
+    font-size: var(--font-normal);
+}
+.socialItemBox img{
+    width: 100px;
+    height: auto;
+    max-height: 200px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.additionButton{
+    font-weight: lighter;
+    font-size: var(--font-normal);
+    color: var(--main-text-color);
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--element-border-color);
+    background-color: var(--element-bg-color);
+    box-shadow: 0px 0px 5px var(--element-bg-color);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    transition: 0.3s ease-in-out;
+}
+.additionButton:hover{
+    background-color: var(--light-bg-color);
+    box-shadow: 0px 0px 5px var(--element-border-color);
+}
+.additionButton:active{
+    background-color: var(--element-bg-color);
+    box-shadow: 0px 0px 5px var(--element-bg-color);
+}
+.socialProfileInfo{
+    overflow-y: scroll;
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: start;
+    justify-content: center;
+}
+
+.socialProfileInfo::-webkit-scrollbar{
+    background-color: var(--contrast-color);
+    border-radius: 8px;
+    width: 7px;
+    overflow: hidden;
+}
+.socialProfileInfo::-webkit-scrollbar-thumb{
+    background-color: var(--light-bg-color);
+    border-radius: 8px;
+}
+
+.additionProfileInfo{
+    justify-self: center;
+    width: 50%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.baseProfileInfo button{
+    width: 50%;
+    height: 7.5%;
+    font-size: var(--font-max);
+    color: var(--main-text-color);
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--element-border-color);
+    border-radius: 5px;
+}
+
+
+.inputBox,
+.confirmBox{
+    position: absolute;
+    top: 35%;
+    left: -40%;
+    height: 100px;
+    width: 250px;
+    background-color: var(--element-bg-color);
+    border: 1px solid var(--element-border-color);
+    box-shadow: 0px 0px 10px var(--element-border-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 25px;
+    transition: 0.5s ease-in-out;
+}
+.inputBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    width: 350px;
+}
+.inputBox div{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.inputBox input{
+    grid-row: 2;
+    grid-column: 2;
+    padding: 0px;
+    height: 45%;
+    width: 90%;
+    margin: 0px 2px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    border-radius: 5px;
+    font-size: var(--font-normal);
+    overflow: hidden;
+}
+.inputBox button{
+    grid-row: 2;
+    grid-column: 1;
+    padding: 0px;
+    height: 45%;
+    width: 80%;
+    margin: 0px 2px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmBox div{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.confirmNo,
+.confirmYes{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    height: 25px;
+    width: 65px;
+    grid-row: 2;
+    grid-column: 1;
+}
+.confirmNo{
+    grid-column: 2;
+}
+
+.inputCofirmCenter{
+    top: 35%;
+    left: 40%; 
+}

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace StalNoteSite.Data.AuctionItem
 {
@@ -43,7 +44,7 @@ namespace StalNoteSite.Data.AuctionItem
                     break;
             }
 
-            using (var context = new Stalcraft2Context())
+            using (var context = new ApplicationDbContext())
             {
                 name = context.SqlItems.Where(x => x.ItemId == ItemId).FirstOrDefault().Name;
             }
@@ -56,7 +57,7 @@ namespace StalNoteSite.Data.AuctionItem
         public override string ToString()
         {
             string name = string.Empty;
-            using (var context = new Stalcraft2Context())
+            using (var context = new ApplicationDbContext())
             {
                 name = context.SqlItems.Where(x => x.ItemId == ItemId).First().Name;
             }

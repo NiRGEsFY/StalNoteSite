@@ -6,7 +6,7 @@ public class ArmorItem
 {
     public ArmorItem() { }
 
-
+    [Key]
     [Display(Name = "Id")]
     public int Id { get; set; }
 

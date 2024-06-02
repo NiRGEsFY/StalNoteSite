@@ -1,0 +1,83 @@
+﻿@using Microsoft.EntityFrameworkCore;
+@using Microsoft.AspNetCore.Identity;
+
+@{
+    ViewData["Title"] = "Профиль";
+    ViewData["CSS"] = "profile.css";
+}
+
+@model UserManager<User>
+@{
+
+    ApplicationDbContext context = new ApplicationDbContext();
+    var currentUser = context.Users.Include(x => x.UserTelegram)
+                                   .Include(x => x.UserConfig)
+                                   .Include(x => x.UserItems)
+                                   .Include(x => x.UserToken)
+                                   .Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+    var roles = await Model.GetRolesAsync(currentUser);
+}
+<div class="mainProfileBox">
+    <div class="baseProfileInfo baseProfileTile">
+        <p class="userRoleName @roles.LastOrDefault()">@roles.LastOrDefault()</p>
+        <img src="~/img/userIcons/base/@String.Format("{0}.{1}",roles.LastOrDefault(),"png")" class="profileImgUser"></img>
+        <p class="userName">@currentUser.UserName</p>
+        <button class="exitButton additionButton">Выйти</button>
+    </div>
+    <div class="socialProfileInfo baseProfileTile">
+        <div class="socialTelegram socialItemBox">
+            <img class="socialTelegramImg" src="~/img/site/telegram.png"/>
+            @if (currentUser.UserTelegram.UserTelegramId != 0)
+            {
+                <div class="telegramId">Id: @currentUser.UserTelegram.UserTelegramId</div>
+                <div class="telegramUserName">Ник: @currentUser.UserTelegram.UserName</div>
+                <button class="telegramRemove additionButton">Удалить</button>
+            }
+            else
+            {
+                <div class="telegramName additionButton">Добавить</div>
+            }
+        </div>
+        <div class="socialExbo socialItemBox">
+            <img class="socialTelegramImg" src="~/img/site/stalcraft.png" />
+            @if(currentUser.UserToken.RefreshToken != null)
+            {
+                <div class="stalcraftAutorization">Изменить Stalcraft</div>
+                <button class="stalcraftRemove additionButton">Удалить</button>
+            }
+            else
+            {
+                <div class="stalcraftAutorization additionButton">Добавить</div>
+            }
+        </div>
+        <div class="socialEmail socialItemBox">
+            <img class="socialTelegramImg" src="~/img/site/email.png" />
+            @if(currentUser.Email != null)
+            {
+                <div class="emailAdress">@currentUser.Email</div>
+                <button class="emailRemove additionButton">Удалить</button>
+            }
+            else
+            {
+                <div class="addEmailAdress additionButton">Добавить</div>
+            }
+        </div>
+    </div>
+    <div class="additionProfileInfo baseProfileTile">
+        <div class="countHunter">Колличество ищеек: @currentUser.UserItems.Count()</div>
+        <div class="countCase">Колличество сборок: 0</div>
+    </div>
+</div>
+<div class="confirmBox" id="confirmBox">
+    <div>Вы согласны: ...</div>
+    <button class="confirmYes additionButton" id="confirmYes">Да</button>
+    <button class="confirmNo additionButton" id="confirmNo">Нет</button>
+</div>
+
+<div class="inputBox" id="inputBox">
+    <div class="inputText" id="inputText">Введите:</div>
+    <input class="inputSection" id="confirmYes" />
+    <button class="inputSend additionButton" id="inputSend">Подтвердить</button>
+</div>
+
+<script src="~/js/profile.js" />

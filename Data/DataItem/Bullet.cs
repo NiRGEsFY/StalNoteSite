@@ -6,6 +6,7 @@ public class Bullet
 {
     public Bullet() { }
 
+    [Key]
     [Display(Name = "Id")]
     public int Id { get; set; }
 

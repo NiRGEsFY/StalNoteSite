@@ -7,6 +7,7 @@ public class CaseItem
 
     public CaseItem() { }
 
+    [Key]
     [Display(Name = "Id")]
     public int Id { get; set; }
 

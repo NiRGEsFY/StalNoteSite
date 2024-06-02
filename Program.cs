@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using StalNoteSite.Api;
 using StalNoteSite.Data;
 using System.Security.Claims;
 
@@ -13,13 +15,29 @@ namespace StalNoteSite
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<Stalcraft2Context>(options =>
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<Stalcraft2Context>();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddIdentity<User,Role>(config =>
+            {
+                config.Password.RequireDigit = false;
+                config.Password.RequireLowercase = false;
+                config.Password.RequireUppercase = false;
+                config.Password.RequireNonAlphanumeric = false;
+                config.Password.RequiredLength = 8;
+                config.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@а-яА-ЯёЁ";
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+
+            builder.Services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/User/Login";
+                config.AccessDeniedPath = "/User/AccessDenied";
+            });
 
             builder.Services.AddAuthorization(options =>
             {
@@ -31,9 +49,26 @@ namespace StalNoteSite
                 {
                     builder.RequireRole(ClaimTypes.Role, "Exbo");
                 });
+                options.AddPolicy("ExboAndTelegram", builder =>
+                {
+                    builder.RequireAssertion(x => x.User.HasClaim(ClaimTypes.Role, "Telegram") &&
+                                                  x.User.HasClaim(ClaimTypes.Role, "Exbo"));
+                });
             });
 
+            builder.Services.AddAuthentication("OAuth")
+                .AddJwtBearer("OAuth", config =>
+                {
+
+                });
+
             var app = builder.Build();
+
+            #region Api
+            ApiBuilder.Initial(app);
+
+
+            #endregion
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -52,12 +87,13 @@ namespace StalNoteSite
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
 
             app.Run();
         }

@@ -10,16 +10,29 @@
 <body>
     <header class="mainHeader">
         <div class="buttonList">
-            <a asp-area="" asp-controller="TTK">ТТК</a>
-            <a asp-area="" asp-controller="DPS">ДПС</a>
-            <a asp-area="" asp-controller="Conteiner">Сборки</a>
-            <a asp-area="" asp-controller="Auction">Аукцион</a>
-            <a asp-area="" asp-controller="Hunter">Ищейки</a>
-            <a asp-area="" asp-controller="AuctionPlayer">Аукцион игроков</a>
+            <a asp-area="" asp-controller="TTK" asp-action="Index">ТТК</a>
+            <a asp-area="" asp-controller="DPS" asp-action="Index">ДПС</a>
+            <a asp-area="" asp-controller="Conteiner" asp-action="Index">Сборки</a>
+            <a asp-area="" asp-controller="Auction" asp-action="Index">Аукцион</a>
+            <a asp-area="" asp-controller="Hunter" asp-action="Index">Ищейки</a>
+            <a asp-area="" asp-controller="AuctionPlayer" asp-action="Index">Аукцион игроков</a>
         </div>
-        <a class="login"asp-area="" asp-controller="Login">
-            Войти
-        </a>
+        <div>
+            
+        </div>
+        
+        @if (!@User.Identity.IsAuthenticated)
+        {
+            <a class="login" asp-area="" asp-controller="User" asp-action="Profile">
+                Войти
+            </a>
+        }
+        else
+        {
+            <a class="login" asp-area="" asp-controller="User" asp-action="Profile">
+                Профиль
+            </a>
+        }
     </header>
     <div class="mainBody">
         @RenderBody()

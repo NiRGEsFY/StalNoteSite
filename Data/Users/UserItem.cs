@@ -1,11 +1,13 @@
-﻿using StalNoteSite.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using StalNoteSite.Data;
 using System.ComponentModel.DataAnnotations;
 
 namespace StalNoteSite;
 
+
+[PrimaryKey(nameof(Id))]
 public class UserItem
 {
-    [Key]
     public long Id { get; set; }
     [MaxLength(100)]
     [Display(Name = "Название предмета")]
@@ -49,7 +51,7 @@ public class UserItem
                 break;
         }
 
-        using (var context = new Stalcraft2Context())
+        using (var context = new ApplicationDbContext())
         {
             name = context.SqlItems.Where(x => x.ItemId == ItemId).FirstOrDefault().Name;
         }

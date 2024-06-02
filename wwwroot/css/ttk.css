@@ -131,7 +131,9 @@
 .morfinCheckBox+label{
     display: inline-flex;
     align-items: center;
-    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     transition: 0.4s ease-in-out;
 }
 .morfinCheckBox+label::before {

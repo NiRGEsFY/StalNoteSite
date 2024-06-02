@@ -1,5 +1,10 @@
-﻿namespace StalNoteSite;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
+namespace StalNoteSite;
+
+
+[PrimaryKey(nameof(Id))]
 public class UserConfig
 {
     public int Id { get; set; }

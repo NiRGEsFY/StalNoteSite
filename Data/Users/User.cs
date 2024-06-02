@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Internal;
+using Microsoft.EntityFrameworkCore;
+using StalNoteSite.Data.Users;
 using System.ComponentModel.DataAnnotations;
 
 namespace StalNoteSite;
 
-public class User : IdentityUser<Guid>
+[PrimaryKey(nameof(Id))]
+public class User : IdentityUser<long>
 {
-    public long Id { get; set; }
+    private bool disposed;
+    public override long Id { get; set; }
 
-    [Display(Name = "Id Роли")]
-    public long RoleId { get; set; }
-    public Role Role { get; set; }
     public UserTelegram UserTelegram { get; set; }
     public UserToken UserToken { get; set; }
     public UserConfig UserConfig { get; set; }
@@ -23,5 +25,17 @@ public class User : IdentityUser<Guid>
         UserItems = new List<UserItem>();
         UserTelegram = new UserTelegram();
         UserToken = new UserToken();
+    }
+    public User(StalNoteSite.Models.Users.RegisterModel model)
+        : this()
+    {
+        //using (var context = new Stalcraft2Context())
+        //{
+        //    var tempRole = context.Roles.Where(x => x.Name == "Новичек").FirstOrDefault();
+        //    this.Role = tempRole;
+        //    this.RoleId = tempRole.Id;
+        //}
+        this.Email = model.Email;
+        this.UserName = model.UserName;
     }
 }

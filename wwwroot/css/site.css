@@ -5,10 +5,15 @@
   --element-border-color: #6E7371;
   --contrast-color: #A1A69C;
 
+
+  --text-error: #b41717;
   --main-text-color: #e6ddd6;
   --contrast-text-color: #f3efec;
   --no-important-text-color: #bdb4ad;
+  --no-important-text-color-75: #bdb4adcc;
+  --no-important-text-color-50: #bdb4ad88;
 
+  --font-heavy: 26px;
   --font-max: 22px;
   --font-normal: 18px;
   --font-min: 14px;

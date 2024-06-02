@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace StalNoteSite.Data.DataItem;
 
 public class ArtefactItem
 {
     public ArtefactItem() { }
-
 
     [Display(Name = "Id")]
     public int Id { get; set; }

@@ -1,0 +1,41 @@
+﻿@model StalNoteSite.Models.Users.RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+    ViewData["CSS"] = "signUp.css";
+}
+
+<div class="registerBody">
+    <div class="registerText">
+        Регистрация
+    </div>
+
+    <div class="registerBox">
+        <form asp-controller="User" asp-action="Register" method="post">
+            <div asp-validation-summary="All"></div>
+            <input hidden asp-for="ReturnUrl" />
+            <div class="registerBoxInputBox">
+                <input placeholder="Почта" asp-for="Email" required />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="registerBoxInputBox">
+                <input placeholder="Логин" asp-for="UserName" required />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div class="registerBoxInputBox">
+                <input placeholder="Пароль" asp-for="Password" required />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="choiceBox">
+                <div class="submitPart">
+                    <button type="submit">Зарегистрироваться</button>
+                </div>
+                <div class="loginPart">
+                    <a asp-controller="User" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">Войти</a>
+                </div>
+                <div class="exitPart">
+                    <a asp-controller="Home" asp-action="Index">Отмена</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

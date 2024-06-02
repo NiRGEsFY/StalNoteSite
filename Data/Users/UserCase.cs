@@ -1,8 +1,11 @@
-﻿using StalNoteSite.Data.DataItem;
+﻿using Microsoft.EntityFrameworkCore;
+using StalNoteSite.Data.DataItem;
 using System.ComponentModel.DataAnnotations;
 
 namespace StalNoteSite.Data.Users
 {
+
+    [PrimaryKey(nameof(Id))]
     public class UserCase
     {
         [Display(Name = "Id")]

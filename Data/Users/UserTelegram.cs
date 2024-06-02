@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace StalNoteSite;
 
+[PrimaryKey(nameof(Id))]
 public class UserTelegram
 {
     public int Id { get; set; }

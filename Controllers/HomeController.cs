@@ -19,7 +19,7 @@ namespace StalNoteSite.Controllers
         public IActionResult Index()
         {
             List<SelledItem> items;
-            using (var context = new Stalcraft2Context())
+            using (var context = new ApplicationDbContext())
             {
                 items = context.SelledItems.Take(5).ToList();
             }

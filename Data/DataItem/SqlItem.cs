@@ -62,7 +62,7 @@ public partial class SqlItem : ICloneable
                 break;
         }
 
-        using (var context = new Stalcraft2Context())
+        using (var context = new ApplicationDbContext())
         {
             name = context.SqlItems.Where(x => x.ItemId == ItemId).FirstOrDefault().Name;
         }
